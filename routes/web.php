@@ -18,3 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// 以下 花屋さんによる参考
+// Route::get('/top', 'TopController@index')->name('top')->middleware('auth');
+
+// Route::group('aaa', function() {
+//     Route...
+//     Route...
+// })->middleware(['auth', 'can:edit'])
