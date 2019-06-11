@@ -17,8 +17,13 @@ class CreateItemsTable extends Migration
             $table->bigIncrements('id');
             $table->text('title');
             $table->string('image_path', 255);
-            $table->bigInteger('user_id');
+            $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 
