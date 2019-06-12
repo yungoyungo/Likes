@@ -17,8 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/list', 'UserController@list');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/user/{id}', 'UserController@index');
+Route::get('/items/{id}', 'UserController@show');
 
 // 以下 花屋さんによる参考
 // Route::get('/top', 'TopController@index')->name('top')->middleware('auth');

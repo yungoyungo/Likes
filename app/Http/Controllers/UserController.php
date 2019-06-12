@@ -7,9 +7,13 @@ use App\Item;
 
 class UserController extends Controller
 {
-    public function list()
+    public function index()
     {
         $items = Item::all();
-        return view('list', compact('items'));
+        return view('index', compact('items'));
+    }
+    public function show(Item $item)
+    {
+        return view('show', compact('item'));
     }
 }
