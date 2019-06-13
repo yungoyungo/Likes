@@ -13,5 +13,8 @@
         </article>
         <hr>
     @endforeach
+    @auth
+        <a href="{{ route('items.create') }}" class="btn btn-primary">新規作成</a>
+    @endauth
 </div>
 @endsection

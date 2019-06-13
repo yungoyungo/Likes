@@ -2,18 +2,18 @@
 
 @section('content')
 <div class="container text-center">
-    <div class="form-title">
-        <label for="title">タイトル</label> 
-        <input class="" name="title" value="{{ old('title') }}">
-    </div>
-    
-    <div class="form-image_url">
-        <input type="file" name="image_url"> 
-    </div>
+    <form action="{{ route('items.store') }}" method="POST">
+        @csrf
+        <div class="form-title">
+            <label for="title">タイトル</label> 
+            <input class="" name="title" value="{{ old('title') }}">
+        </div>
+        
+        <div class="form-image_url">
+            <input type="file" name="image_path"> 
+        </div>
 
-    <div class="form-content">
-        <label for="content" class="form-content">内容</label> 
-        <textarea class="" name="content" cols="50" rows="10">{{ old('content') }}</textarea>       
-    </div>
+        <input type='submit' value="追加">
+    </form>
 </div>
 @endsection
