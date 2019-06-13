@@ -23,5 +23,10 @@ class ItemsTableSeeder extends Seeder
             'image_path' => 'http://sample.sample.png',
             'user_id' => '2',
         ]);
+        App\Item::create([
+            'title' => 'サーフ ブンガク カマクラ',
+            'image_path' => 'http://sample.sample.png',
+            'user_id' => '2',
+        ]);
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
 
 class UsersTableSeeder extends Seeder
 {
@@ -23,5 +24,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'yusa@example.com',
             'password' => Hash::make('password'),
         ]);
+
+        factory(User::class, 8)->create();
     }
 }
