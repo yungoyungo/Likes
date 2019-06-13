@@ -18,8 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/user/{id}', 'UserController@index');
-Route::get('/items/{id}', 'UserController@show');
+//Route::get('/user/{id}', 'ItemController@show');
+Route::get('/items', 'ItemController@index');
+Route::get('/items/{id}', 'ItemController@show');
+Route::get('/create', 'ItemController@create');
 
 // 以下 花屋さんによる参考
 // Route::get('/top', 'TopController@index')->name('top')->middleware('auth');
