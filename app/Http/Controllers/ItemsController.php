@@ -10,7 +10,7 @@ class ItemsController extends Controller
 {
     public function index()
     {
-        $items = Item::all();
+        $items = Item::where('user_id', auth()->user()->id)->get();
         return view('items.index', compact('items'));
     }
 
