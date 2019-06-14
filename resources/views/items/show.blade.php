@@ -11,7 +11,7 @@
         image_path : {{ $item->image_path }}<br>
         <!-- <img src="{{ asset('storage/item_images/'.$item->image_path) }}"><br> -->
         @if($item->image_path == null)
-            <img src="/storage/noimage.png">
+            <img src="/storage/no_image.png", width="150", height="150">
         @else
             <img src="/storage/item_images/{{ $item->image_path }}">
         @endif

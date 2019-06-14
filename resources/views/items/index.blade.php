@@ -5,6 +5,11 @@
     @foreach($items as $item)
         <article>
             <h2>
+                @if($item->image_path == null)
+                    <img src="/storage/no_image.png", width="150", height="150">
+                @else
+                    <img src="/storage/item_images/{{ $item->image_path }}", width="150", height="150">
+                @endif
                 <a href="{{ url('items', $item->id) }}">
                     {{ $item->title }}
                 </a>
