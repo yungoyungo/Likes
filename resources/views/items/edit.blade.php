@@ -2,15 +2,18 @@
 
 @section('content')
 <div class="container text-center">
-    <form action="{{ route('items.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('items.update', $item->id) }}" method="POST">
         @csrf
+        @method('PUT')
         <div class="form-title">
             <label for="title">タイトル</label> 
-            <input class="" name="title" value="{{ old('title') }}">
+            <input class="" name="title" value="{{ $item->title }}">
         </div>
         
         <div class="form-image_url">
-            <input type="file" name="image_path"> 
+            {{ $item->image_path }}
+            <br>
+            <input type="file" name="image_path" value="{{ $item->image_path }}"> 
         </div>
 
         <input type='submit' value="追加">

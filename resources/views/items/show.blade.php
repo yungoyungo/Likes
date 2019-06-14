@@ -8,6 +8,13 @@
     <hr/>
 
     <article>
+        image_path : {{ $item->image_path }}<br>
+        <!-- <img src="{{ asset('storage/item_images/'.$item->image_path) }}"><br> -->
+        @if($item->image_path == null)
+            <img src="/storage/noimage.png">
+        @else
+            <img src="/storage/item_images/{{ $item->image_path }}">
+        @endif
         <div class="body">uploaded by {{ $item->user->name }}</div>
     </article>
  
