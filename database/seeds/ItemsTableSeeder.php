@@ -15,17 +15,17 @@ class ItemsTableSeeder extends Seeder
  
         App\Item::create([
             'title' => 'sample_item',
-            'image_path' => 'http://sample.sample.png',
+            'image_path' => '',
             'user_id' => '1',
         ]);
         App\Item::create([
-            'title' => 'フィードバックファイル',
-            'image_path' => 'http://sample.sample.png',
+            'title' => '君という花',
+            'image_path' => 'sample/君という花.jpg',
             'user_id' => '2',
         ]);
         App\Item::create([
-            'title' => 'サーフ ブンガク カマクラ',
-            'image_path' => 'http://sample.sample.png',
+            'title' => 'リライト',
+            'image_path' => 'sample/リライト.jpg',
             'user_id' => '2',
         ]);
     }
