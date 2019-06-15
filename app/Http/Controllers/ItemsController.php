@@ -23,8 +23,10 @@ class ItemsController extends Controller
         $item = new Item;
         // dd($request);
         $item->title = $request->title;
-        $filePath = $request->file('image_path')->store('public/item_images');
-        $item->image_path = str_replace('public/item_images/', '', $filePath);
+        if(!is_null($request->image_path)){
+            $filePath = $request->file('image_path')->store('public/item_images');
+            $item->image_path = str_replace('public/item_images/', '', $filePath);
+        }
         // $item = Auth::user()->items()->create([
         //     'title' => $request->title,
         //     'image_path' => $request->image_path,
