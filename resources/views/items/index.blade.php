@@ -4,7 +4,7 @@
 <div class="container py-4">
     <div class="row">
         @foreach($items as $item)
-            <article class="d-inline col-6 col-md-4 col-lg-3 p-1">
+            <article class="d-inline col-6 col-md-4 p-1">
                 <a href="{{ url('items', $item->id) }}">
                     @if($item->image_path == null)
                         <img src="/storage/no_image.png", class="img-fluid">
