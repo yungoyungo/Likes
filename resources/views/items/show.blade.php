@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
-    <article>
+    <article class="text-center">
         <!-- <img src="{{ asset('storage/item_images/'.$item->image_path) }}"><br> -->
         @if($item->image_path == null)
             <img src="/storage/no_image.png", alt="no_image" class="img-fluid">
