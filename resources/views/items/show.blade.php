@@ -1,20 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>
-        {{ $item->title }}
-    </h1>
-    
-    <hr/>
 
     <article>
-        image_path : {{ $item->image_path }}<br>
         <!-- <img src="{{ asset('storage/item_images/'.$item->image_path) }}"><br> -->
         @if($item->image_path == null)
-            <img src="/storage/no_image.png", width="150", height="150">
+            <img src="/storage/no_image.png", alt="no_image" class="img-fluid">
         @else
-            <img src="/storage/item_images/{{ $item->image_path }}">
+            <img src="/storage/item_images/{{ $item->image_path }}" alt="image({{ $item->title }})" class="img-fluid">
         @endif
+        <hr/>
+        <h1 class="text-center">
+            {{ $item->title }}
+        </h1>
+        <hr/>
+        image_path : {{ $item->image_path }}<br>
         <div class="body">uploaded by {{ $item->user->name }}</div>
     </article>
  

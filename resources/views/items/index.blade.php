@@ -2,24 +2,23 @@
 
 @section('content')
 <div class="container py-4">
-    @foreach($items as $item)
-        <article>
-            <h2>
-                @if($item->image_path == null)
-                    <img src="/storage/no_image.png", width="150", height="150">
-                @else
-                    <img src="/storage/item_images/{{ $item->image_path }}", width="150", height="150">
-                @endif
+    <div class="row">
+        @foreach($items as $item)
+            <article class="d-inline col-6 col-md-4 col-lg-3 p-1">
                 <a href="{{ url('items', $item->id) }}">
-                    {{ $item->title }}
+                    @if($item->image_path == null)
+                        <img src="/storage/no_image.png", class="img-fluid">
+                    @else
+                        <img src="/storage/item_images/{{ $item->image_path }}" class="img-fluid">
+                    @endif
+                    <!-- {{ $item->title }} -->
                 </a>
-                 by {{ $item->user->name }}
-            </h2>
-        </article>
-        <hr>
-    @endforeach
+                    <!-- by {{ $item->user->name }} -->
+            </article>
+        @endforeach
+    </div>
     @auth
-        <a href="{{ route('items.create') }}" class="btn btn-primary">新規作成</a>
+        <a href="{{ route('items.create') }}" class="btn btn-primary d-block w-50 m-4 mx-auto">新規作成</a>
     @endauth
 </div>
 @endsection
