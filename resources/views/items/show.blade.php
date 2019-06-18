@@ -35,5 +35,4 @@
 @endsection
 
 @section('navbar_content')
-    <a href="{{ route('user.items.index', ['user' => $user->id]) }}">index</a>
 @endsection

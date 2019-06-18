@@ -34,6 +34,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li>@yield('navbar_content')</li>
+                        <li><a class="navbar-brand" href="/user/1/items">user1</a></li>
+                        <li><a class="navbar-brand" href="/user/2/items">user2</a></li>
+                        <li><a class="navbar-brand" href="/user/3/items">user3</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
