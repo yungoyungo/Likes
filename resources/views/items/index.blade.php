@@ -4,7 +4,7 @@
 <div class="container py-4">
     <div class="row">
         @foreach($user->items as $item)
-            <article class="d-inline col-4 p-1">
+            <article class="d-inline col-4 col-lg-3 p-1">
                 <a href="{{ route('user.items.show', ['user' => $item->user->id, 'item' => $item->id]) }}">
                     @if($item->image_path == null)
                         <img src="/storage/no_image.png", alt="no_image" class="img-fluid">
