@@ -10,12 +10,19 @@ class ItemsController extends Controller
 {
     public function index()
     {
-        $items = Item::where('user_id', auth()->user()->id)->get();
-        return view('items.index', compact('items'));
+        $this->authorize('viewAny');
+        // if(Auth::check()){
+            $items = Item::where('user_id', auth()->user()->id)->get();
+            return view('items.index', compact('items'));
+        // }
+        // else{
+        //     return view('login', 'loginController@login');
+        // }
     }
 
     public function create()
     {
+        $this->authorize('view');
         return view('items.create');
     }
     public function store(Request $request)
@@ -39,23 +46,28 @@ class ItemsController extends Controller
 
     public function show(Item $item)
     {
+        $this->authorize('view', $item);
         return view('items.show', compact('item'));
     }
 
     public function edit(Item $item)
     {
+        $this->authorize('view', $item);
         return view('items.edit', compact('item'));
     }
+    
     public function update(Item $item, Request $request)
     {
+        $this->authorize('update', $item);
         $item->title = $request->title;
         $item->save();
 
-        return redirect()->route('items.show', [$item->id]);
+        return redirect()->route('user.items.show', ['user' => $item->user->id, 'item' => $item->id]);
     }
 
     public function destroy(Item $item)
     {
+        $this->authorize('destroy', $item);
         Item::destroy($item->id);
         return redirect()->route('items.index');
     }
