@@ -14,6 +14,12 @@ Route::get('/', 'TopController@index')->name('top');
 
 Auth::routes();
 
+Route::prefix('user')->name('user.')->group(function() {
+    // Route::get('{user}/items', 'UserController@index')->middleware('can:index, App\Item')->name('items.index');
+    Route::get('{user}/items', 'UserController@index')->name('items.index');
+    Route::get('{user}/items/{item}', 'UserController@show')->name('items.show');
+});
+
 Route::prefix('items')->name('items.')->middleware('auth')->group(function() {
     // Route::get('/', 'ItemsController@index')->name('index');
     Route::get('/create', 'ItemsController@create')->name('create');
@@ -22,12 +28,6 @@ Route::prefix('items')->name('items.')->middleware('auth')->group(function() {
     Route::get('/{item}/edit', 'ItemsController@edit')->name('edit');
     Route::put('/{item}', 'ItemsController@update')->name('update');
     Route::delete('/{item}', 'ItemsController@destroy')->name('destroy');
-});
-
-Route::prefix('user')->name('user.')->middleware('auth')->group(function() {
-    // Route::get('{user}/items', 'UserController@index')->middleware('can:index, App\Item')->name('items.index');
-    Route::get('{user}/items', 'UserController@index')->name('items.index');
-    Route::get('{user}/items/{item}', 'UserController@show')->name('items.show');
 });
 
 Route::fallback(function() {

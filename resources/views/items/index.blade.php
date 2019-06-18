@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-@auth
 <div class="container py-4">
     <div class="row">
         @foreach($user->items as $item)
@@ -18,7 +17,8 @@
             </article>
         @endforeach
     </div>
-    <a href="{{ route('items.create') }}" class="btn btn-primary d-block w-50 m-4 mx-auto">新規作成</a>
-@endauth
+    @can('create', $item)
+        <a href="{{ route('items.create') }}" class="btn btn-primary d-block w-50 m-4 mx-auto">新規作成</a>
+    @endcan
 </div>
 @endsection

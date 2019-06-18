@@ -52,7 +52,7 @@ class ItemPolicy
      * @param  \App\User  $user
      * @return mixed
      */
-    public function create(User $user)
+    public function create(User $user, Item $item)
     {
         return $item->user->id === $user->id;
     }
