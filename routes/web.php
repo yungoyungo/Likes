@@ -31,6 +31,9 @@ Route::prefix('items')->name('items.')->middleware('auth')->group(function() {
     Route::delete('/{item}', 'ItemsController@destroy')->name('destroy');
 });
 
-Route::fallback(function() {
-    return redirect()->route('top');
-});
+Route::get('/login/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('/login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+
+// Route::fallback(function() {
+//     return redirect()->route('top');
+// });
