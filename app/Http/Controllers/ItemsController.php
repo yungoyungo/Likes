@@ -49,8 +49,8 @@ class ItemsController extends Controller
 
     public function destroy(Item $item)
     {
-        $this->authorize('destroy', $item);
+        $this->authorize('delete', $item);
         Item::destroy($item->id);
-        return redirect()->route('items.index');
+        return redirect()->route('user.items.index', ['user' => $item->user->id]);
     }
 }
