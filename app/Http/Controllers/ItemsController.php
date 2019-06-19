@@ -8,21 +8,9 @@ use Auth;
 
 class ItemsController extends Controller
 {
-    public function index()
-    {
-        $this->authorize('viewAny');
-        // if(Auth::check()){
-            $items = Item::where('user_id', auth()->user()->id)->get();
-            return view('items.index', compact('items'));
-        // }
-        // else{
-        //     return view('login', 'loginController@login');
-        // }
-    }
-
     public function create()
     {
-        $this->authorize('view');
+        //$this->authorize('create');
         return view('items.create');
     }
     public function store(Request $request)
@@ -41,13 +29,7 @@ class ItemsController extends Controller
         $item->user_id = auth()->user()->id;
         $item->save();
 
-        return redirect()->route('items.index');
-    }
-
-    public function show(Item $item)
-    {
-        $this->authorize('view', $item);
-        return view('items.show', compact('item'));
+        return redirect()->route('user.items.index', ['user' => $item->user->id]);
     }
 
     public function edit(Item $item)
