@@ -4,10 +4,7 @@
 <div class="container text-center">
     <form action="{{ route('items.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <!-- <div class="form-image_url">
-            <input type="file" name="image_path"> 
-        </div> -->
-
+        
         <div class="custom-file col-md-6 d-block mx-auto">
             <input type="file" class="custom-file-input" id="customFile" name="image_path">
             <label class="custom-file-label" for="customFile">ファイルを選択</label>
