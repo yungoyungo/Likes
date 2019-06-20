@@ -17,8 +17,10 @@
             </article>
         @endforeach
     </div>
-    @can('index', $item)
-        <a href="{{ route('items.create') }}" class="btn btn-primary d-block w-50 m-4 mx-auto">新規作成</a>
-    @endcan
+    @auth
+        @if($user->id === auth()->user()->id)
+            <a href="{{ route('items.create') }}" class="btn btn-primary d-block w-50 m-4 mx-auto">新規作成</a>
+        @endif
+    @endauth
 </div>
 @endsection
