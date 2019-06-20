@@ -5,7 +5,11 @@
     <form action="{{ route('items.update', $item->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
-        <img src="/storage/item_images/{{ $item->image_path }}" alt="image({{ $item->title }})" class="w-50 my-3">
+        @if($item->image_path != null)
+            <img src="/storage/item_images/{{ $item->image_path }}" alt="image({{ $item->title }})" class="w-50 my-3">
+        @else
+            <p>(画像なし)</p>
+        @endif
         <div class="custom-file col-md-6 d-block mx-auto">
             
             <input type="file" class="custom-file-input" id="customFile" name="image_path" value="{{ $item->image_path }}">
