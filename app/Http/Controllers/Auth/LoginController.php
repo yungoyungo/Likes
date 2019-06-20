@@ -66,14 +66,16 @@ class LoginController extends Controller
             return redirect('/login')->with('oauth_error', '予期せぬエラーが発生しました');
         }
 
-        Auth::login(User::firstOrCreate([
-            'twitter_id' => $providerUser->getNickname()
+        try{Auth::login(User::firstOrCreate([
+            'twitter_id' => $providerUser->getNickname(),
         ], [
-            'name' => $providerUser->getName()
+            'name' => $providerUser->getName(),
         ]));
+        }catch(\Exception $e){
+            dd('わんわん！');
+        }
 
         $user = auth()->user();
-
         return redirect()->route('user.items.index', ['user' => $user]);
     }
 }
