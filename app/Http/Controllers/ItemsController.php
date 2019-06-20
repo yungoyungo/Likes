@@ -8,11 +8,24 @@ use Auth;
 
 class ItemsController extends Controller
 {
+    public function index()
+    {
+        $users = User::all();
+        dd($users);
+        return view('items.index', ['users' => $users]);
+    }
+
     public function create()
     {
         //$this->authorize('create');
         return view('items.create');
     }
+
+    public function show(Item $item)
+    {
+        return view('items.show', ['item' => $item]);
+    }
+
     public function store(Request $request)
     {
         $item = new Item;
@@ -44,7 +57,7 @@ class ItemsController extends Controller
         $item->title = $request->title;
         $item->save();
 
-        return redirect()->route('user.items.show', ['user' => $item->user->id, 'item' => $item->id]);
+        return redirect()->route('items.show', ['user' => $item->user->id, 'item' => $item->id]);
     }
 
     public function destroy(Item $item)
