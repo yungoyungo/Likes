@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
+use Illuminate\Support\Facades\Auth;
 use App\user;
 
 class LoginController extends Controller
@@ -60,21 +61,19 @@ class LoginController extends Controller
     {
         try {
             $providerUser = \Socialite::with($provider)->user();
-            // dd($providerUser);
+            //dd($providerUser);
         } catch(\Exception $e) {
             return redirect('/login')->with('oauth_error', '予期せぬエラーが発生しました');
         }
 
-        if ($email = $providerUser->getEmail()) {
-            Auth::login(User::firstOrCreate([
-                'email' => $email
-            ], [
-                'name' => $providerUser->getName()
-            ]));
+        Auth::login(User::firstOrCreate([
+            'twitter_id' => $providerUser->getNickname()
+        ], [
+            'name' => $providerUser->getName()
+        ]));
 
-            return redirect($this->redirectTo);
-        } else {
-            return redirect('/login')->with('oauth_error', 'メールアドレスが取得できませんでした');
-        }
+        $user = auth()->user();
+
+        return redirect()->route('user.items.index', ['user' => $user]);
     }
 }

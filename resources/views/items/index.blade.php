@@ -17,7 +17,7 @@
             </article>
         @endforeach
     </div>
-    @can('create', $item)
+    @can('view')
         <a href="{{ route('items.create') }}" class="btn btn-primary d-block w-50 m-4 mx-auto">新規作成</a>
     @endcan
 </div>
