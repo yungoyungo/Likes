@@ -19,6 +19,12 @@ class UserPolicy
         //
     }
 
+    public function view(User $user, $user2)
+    {
+        // dd($user2);
+        return $user->id === $user2->id;
+    }
+
     public function create(User $user)
     {
         //dd($user->id);

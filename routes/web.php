@@ -17,6 +17,7 @@ Auth::routes();
 
 Route::prefix('user')->name('user.')->group(function() {
     // Route::get('{user}/items', 'UserController@index')->middleware('can:index, App\Item')->name('items.index');
+    // Route::get('{user}/items', 'UserController@index')->middleware('can:view, App\User, user')->name('items.index');
     Route::get('{user}/items', 'UserController@index')->name('items.index');
 });
 
