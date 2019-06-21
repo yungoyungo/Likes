@@ -27,14 +27,14 @@
                     <a class="navbar-brand" href="{{ route('user.items.index', ['user' => auth()->user()]) }}">
                         <!-- {{ config('app.name', 'Laravel') }} -->
                         <!-- スコ -->
-                        <img src="/storage/suko.png", alt="suko_logo" class="img-fluid" style="height:2em;">
+                        <img src="{{ asset('images/suko.png') }}", alt="suko_logo" class="img-fluid" style="height:2em;">
                     </a>
                 @endauth
                 @guest
                     <a class="navbar-brand" href="{{ route('login') }}">
                         <!-- {{ config('app.name', 'Laravel') }} -->
                         <!-- スコ -->
-                        <img src="/storage/suko.png", alt="suko_logo" class="img-fluid" style="height:3em;">
+                        <img src="{{ asset('images/suko.png') }}", alt="suko_logo" class="img-fluid" style="height:3em;">
                     </a>
                 @endguest
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
