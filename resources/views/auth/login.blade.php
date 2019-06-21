@@ -66,9 +66,8 @@
                         </div>
                     </form>
                 </div>
-
-                
             </div>
+            
             <div class="card mt-4">
                 <div class="card-header">{{ __('SNSでログイン') }}</div>
                 <div class="card-body">
