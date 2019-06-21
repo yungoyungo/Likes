@@ -66,6 +66,16 @@
                         </div>
                     </form>
                 </div>
+
+                
+            </div>
+            <div class="card mt-4">
+                <div class="card-header">{{ __('SNSでログイン') }}</div>
+                <div class="card-body">
+                    <div class="mx-auto text-center">
+                        <a href="{{ route('login.twitter', ['provider' => 'twitter']) }}" class="btn btn-primary py-2 px-4">Twitterログイン</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
