@@ -34,9 +34,9 @@ Route::resource('items', 'ItemsController');
 //     Route::delete('/{item}', 'ItemsController@destroy')->name('destroy');
 // });
 
-Route::get('/login/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('/login/{provider}', 'Auth\LoginController@redirectToProvider')->name('login.twitter');
 Route::get('/login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 
-// Route::fallback(function() {
-//     return redirect()->route('top');
-// });
+Route::fallback(function() {
+    return redirect()->route('user.items.index',['user'=>auth()->user()]);
+});
