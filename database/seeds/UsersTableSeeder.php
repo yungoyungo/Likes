@@ -29,7 +29,12 @@ class UsersTableSeeder extends Seeder
             'email' => 'sample@example.com',
             'password' => Hash::make('password'),
         ]);
+        App\User::create([
+            'name' => 'none',
+            'email' => 'none@example.com',
+            'password' => Hash::make('password'),
+        ]);
 
-        factory(User::class, 7)->create();
+        // factory(User::class, 7)->create();
     }
 }

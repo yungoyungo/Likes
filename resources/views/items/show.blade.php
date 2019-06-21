@@ -31,7 +31,7 @@
         </form>
     @endcan
 
-    <a href="{{ route('user.items.index', ['user' => $user->id]) }}" class="btn btn-secondary float-right">一覧へ戻る</a>
+    <a href="{{ route('user.items.index', ['user' => $item->user->id]) }}" class="btn btn-secondary float-right">一覧へ戻る</a>
 @endsection
 
 @section('navbar_content')

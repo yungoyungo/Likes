@@ -12,9 +12,4 @@ class UserController extends Controller
     {
         return view('items.index', ['user' => $user]);
     }
-
-    public function show(User $user, Item $item)
-    {
-        return view('items.show', ['user' => $user, 'item' => $item]);
-    }
 }

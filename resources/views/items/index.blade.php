@@ -5,7 +5,7 @@
     <div class="row">
         @foreach($user->items as $item)
             <article class="d-inline col-4 col-lg-3 p-1">
-                <a href="{{ route('user.items.show', ['user' => $item->user->id, 'item' => $item->id]) }}">
+                <a href="{{ route('items.show', ['item' => $item->id]) }}">
                     @if($item->image_path == null)
                         <img src="/storage/no_image.png", alt="no_image" class="img-fluid">
                     @else
@@ -17,8 +17,10 @@
             </article>
         @endforeach
     </div>
-    @can('create', $item)
-        <a href="{{ route('items.create') }}" class="btn btn-primary d-block w-50 m-4 mx-auto">新規作成</a>
-    @endcan
+    @auth
+        @if($user->id === auth()->user()->id)
+            <a href="{{ route('items.create') }}" class="btn btn-primary d-block w-50 m-4 mx-auto">新規作成</a>
+        @endif
+    @endauth
 </div>
 @endsection
