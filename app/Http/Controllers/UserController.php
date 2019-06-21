@@ -4,16 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Item;
+use App\User;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(User $user)
     {
-        $items = Item::all();
-        return view('index', compact('items'));
-    }
-    public function show(Item $item)
-    {
-        return view('show', compact('item'));
+        return view('items.index', ['user' => $user]);
     }
 }

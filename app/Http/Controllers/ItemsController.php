@@ -10,14 +10,22 @@ class ItemsController extends Controller
 {
     public function index()
     {
-        $items = Item::where('user_id', auth()->user()->id)->get();
-        return view('items.index', compact('items'));
+        $users = User::all();
+        dd($users);
+        return view('items.index', ['users' => $users]);
     }
 
     public function create()
     {
+        //$this->authorize('create');
         return view('items.create');
     }
+
+    public function show(Item $item)
+    {
+        return view('items.show', ['item' => $item]);
+    }
+
     public function store(Request $request)
     {
         $item = new Item;
@@ -34,29 +42,28 @@ class ItemsController extends Controller
         $item->user_id = auth()->user()->id;
         $item->save();
 
-        return redirect()->route('items.index');
-    }
-
-    public function show(Item $item)
-    {
-        return view('items.show', compact('item'));
+        return redirect()->route('user.items.index', ['user' => $item->user->id]);
     }
 
     public function edit(Item $item)
     {
+        $this->authorize('view', $item);
         return view('items.edit', compact('item'));
     }
+    
     public function update(Item $item, Request $request)
     {
+        $this->authorize('update', $item);
         $item->title = $request->title;
         $item->save();
 
-        return redirect()->route('items.show', [$item->id]);
+        return redirect()->route('items.show', ['user' => $item->user->id, 'item' => $item->id]);
     }
 
     public function destroy(Item $item)
     {
+        $this->authorize('delete', $item);
         Item::destroy($item->id);
-        return redirect()->route('items.index');
+        return redirect()->route('user.items.index', ['user' => $item->user->id]);
     }
 }

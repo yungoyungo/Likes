@@ -19,19 +19,20 @@
  
     <br/>
  
-    @auth
+    @can('view', $item)
         <a href="{{ route('items.edit', $item->id) }}" class="btn btn-primary">編集</a>
+    @endcan
 
+    @can('delete', $item)
         <form class="d-inline" action="{{ route('items.destroy', $item->id) }}" method="POST">
             @method('DELETE')
             @csrf
-            <button class="btn btn-danger" type="submit">delete</button>
+            <button class="btn btn-danger" type="submit">削除</button>
         </form>
-    @endauth
+    @endcan
 
-    <a href="{{ route('items.index') }}" class="btn btn-secondary float-right">一覧へ戻る</a>
+    <a href="{{ route('user.items.index', ['user' => $item->user->id]) }}" class="btn btn-secondary float-right">一覧へ戻る</a>
 @endsection
 
 @section('navbar_content')
-    <a href="{{ route('items.index') }}">index</a>
 @endsection
