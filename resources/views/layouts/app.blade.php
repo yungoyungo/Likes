@@ -21,11 +21,7 @@
 </head>
 <body>
     <div id="app">
-<<<<<<< Updated upstream
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #ADD">
-=======
         <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background: linear-gradient(to right, #74ebd5, #acb6e5);">
->>>>>>> Stashed changes
             <div class="container">
                 @auth
                     <a class="navbar-brand" href="{{ route('user.items.index', ['user' => auth()->user()]) }}">
