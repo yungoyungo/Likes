@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Item;
 use Auth;
 
@@ -64,6 +65,9 @@ class ItemsController extends Controller
     {
         $this->authorize('delete', $item);
         Item::destroy($item->id);
+        if(isset($item->image_path)){
+            Storage::delete('public/item_images/'.$item->image_path);
+        }
         return redirect()->route('user.items.index', ['user' => $item->user->id]);
     }
 }
