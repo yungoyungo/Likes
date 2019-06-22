@@ -29,6 +29,9 @@ class ItemsController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+        ]);
         $item = new Item;
         // dd($request);
         $item->title = $request->title;
