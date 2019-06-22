@@ -2,19 +2,20 @@
 
 @section('content')
     <article class="text-center">
-        <!-- <img src="{{ asset('storage/item_images/'.$item->image_path) }}"><br> -->
-        @if($item->image_path == null)
-            <img src="/storage/no_image.png", alt="no_image" class="img-fluid">
-        @else
-            <img src="/storage/item_images/{{ $item->image_path }}" alt="image({{ $item->title }})" class="img-fluid">
-        @endif
-        <hr/>
-        <h1 class="text-center">
-            {{ $item->title }}
-        </h1>
-        <hr/>
-        image_path : {{ $item->image_path }}<br>
-        <div class="body">uploaded by {{ $item->user->name }}</div>
+        <div class="row">
+            <div class="col-md-6">
+                <!-- <img src="{{ asset('storage/item_images/'.$item->image_path) }}"><br> -->
+                @if($item->image_path == null)
+                    <img src="/storage/no_image.png", alt="no_image" class="img-fluid">
+                @else
+                    <img src="/storage/item_images/{{ $item->image_path }}" alt="image({{ $item->title }})" class="img-fluid">
+                @endif
+            </div>
+            <h1 class="text-center col-md-6 py-4 my-auto">
+                <div class="h1">{{ $item->title }}</div>
+                <div class="text-secondary" style="font-size: 1rem;">uploaded by {{ $item->user->name }}</div>
+            </h1>
+        </div>
     </article>
  
     <br/>
