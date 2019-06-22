@@ -18,8 +18,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/fade.css') }}" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ asset('js/fade.js') }}"></script>
 </head>
-<body>
+<body class="fadeout">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background: linear-gradient(to right, #74ebd5, #acb6e5);">
             <div class="container">
