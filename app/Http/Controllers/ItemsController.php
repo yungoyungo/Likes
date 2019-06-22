@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Item;
 use Auth;
 
@@ -28,6 +29,9 @@ class ItemsController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+        ]);
         $item = new Item;
         // dd($request);
         $item->title = $request->title;
@@ -63,6 +67,9 @@ class ItemsController extends Controller
     public function destroy(Item $item)
     {
         $this->authorize('delete', $item);
+        if(isset($item->image_path)){
+            Storage::delete('public/item_images/'.$item->image_path);
+        }
         Item::destroy($item->id);
         return redirect()->route('user.items.index', ['user' => $item->user->id]);
     }
