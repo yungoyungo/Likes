@@ -67,10 +67,10 @@ class ItemsController extends Controller
     public function destroy(Item $item)
     {
         $this->authorize('delete', $item);
-        Item::destroy($item->id);
         if(isset($item->image_path)){
             Storage::delete('public/item_images/'.$item->image_path);
         }
+        Item::destroy($item->id);
         return redirect()->route('user.items.index', ['user' => $item->user->id]);
     }
 }
