@@ -28,17 +28,15 @@
         <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background: linear-gradient(to right, #74ebd5, #acb6e5);">
             <div class="container">
                 @auth
-                    <a class="navbar-brand" href="{{ route('user.items.index', ['user' => auth()->user()]) }}">
-                        <!-- {{ config('app.name', 'Laravel') }} -->
-                        <!-- スコ -->
-                        <img src="{{ asset('images/suko.png') }}", alt="suko_logo" class="img-fluid" style="height:2em;">
+                    <a class="navbar-brand" href="{{ route('user.items.index', ['user' => auth()->user()]) }}" style="font-size:2rem; letter-spacing:6px;">
+                        {{ config('app.name', 'Laravel') }}
+                        <!-- <img src="{{ asset('images/suko.png') }}", alt="suko_logo" class="img-fluid" style="height:2rem;"> -->
                     </a>
                 @endauth
                 @guest
-                    <a class="navbar-brand" href="{{ route('login') }}">
-                        <!-- {{ config('app.name', 'Laravel') }} -->
-                        <!-- スコ -->
-                        <img src="{{ asset('images/suko.png') }}", alt="suko_logo" class="img-fluid" style="height:3em;">
+                    <a class="navbar-brand" href="{{ route('login') }}" style="font-size:2rem; letter-spacing:6px;">
+                        {{ config('app.name', 'Laravel') }}
+                        <!-- <img src="{{ asset('images/suko.png') }}", alt="suko_logo" class="img-fluid" style="height:2rem;"> -->
                     </a>
                 @endguest
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
