@@ -14,7 +14,8 @@ class UserNameToUnique extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('name')->unique()->change();
+            // $table->string('name')->unique()->change();
+            $table->unique(['name']);
         });
     }
 
@@ -26,7 +27,8 @@ class UserNameToUnique extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('name')->unique(false)->change();
+            // $table->string('name')->unique(false)->change();
+            $table->dropUnique(['name']);
         });
     }
 }
