@@ -24,6 +24,8 @@ class ItemsController extends Controller
 
     public function show(Item $item)
     {
+        //$imagePath = Storage::disk('s3')->url('hoge.jpg');
+        // return view('items.show', ['item' => $item, 'itemPath' => $imagePath]);
         return view('items.show', ['item' => $item]);
     }
 
@@ -37,8 +39,17 @@ class ItemsController extends Controller
         $item->title = $request->title;
         if(!is_null($request->image_path)){
             $filePath = $request->file('image_path')->store('public/item_images');
+            // $filePath = $request->file('image_path')->store('public/item_images', 's3');
+            // $filePath = Storage::disk('s3')->putFile('/', $request->file('image_path'), 'public');
             $item->image_path = str_replace('public/item_images/', '', $filePath);
         }
+        // if ($request->hasFile('image_path')) {
+        //     $path = Storage::disk('s3')->putFile('profiles', $request->image_path, 'public'); // Ｓ３にアップ
+        //     echo "\npath=" . $path;
+        //     $url = Storage::disk('s3')->url($path);
+        //     echo "\nurl=" . $url;
+        //     echo "\n";
+        // }
         // $item = Auth::user()->items()->create([
         //     'title' => $request->title,
         //     'image_path' => $request->image_path,
