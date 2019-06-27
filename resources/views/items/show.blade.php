@@ -8,7 +8,7 @@
                 @if($item->image_path == null)
                     <img src="/storage/no_image.png", alt="no_image" class="img-fluid">
                 @else
-                    <img src="/storage/item_images/{{ $item->image_path }}" alt="image({{ $item->title }})" class="img-fluid">
+                    <img src="{{ $image_url }}" alt="image({{ $item->title }})" class="img-fluid">
                 @endif
             </div>
             <h1 class="text-center col-md-6 py-4 my-auto">

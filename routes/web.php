@@ -11,7 +11,7 @@
 |
 */
 Route::get('/', 'TopController@index')->name('top');
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
@@ -38,5 +38,6 @@ Route::get('/login/{provider}', 'Auth\LoginController@redirectToProvider')->name
 Route::get('/login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::fallback(function() {
-    return redirect()->route('user.items.index',['user'=>auth()->user()]);
+    // return redirect()->route('user.items.index',['user'=>auth()->user()]);
+    return redirect()->route('top');
 });

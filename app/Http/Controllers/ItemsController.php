@@ -24,7 +24,9 @@ class ItemsController extends Controller
 
     public function show(Item $item)
     {
-        return view('items.show', ['item' => $item]);
+        $image_url = Storage::disk('s3')->url($item->image_path);
+        // dd($image_url);
+        return view('items.show', ['item' => $item, 'image_url' => $image_url]);
     }
 
     public function store(Request $request)
@@ -32,13 +34,25 @@ class ItemsController extends Controller
         $request->validate([
             'title' => 'required',
         ]);
+        // dd(Storage::disk('s3'));
         $item = new Item;
         // dd($request);
         $item->title = $request->title;
         if(!is_null($request->image_path)){
-            $filePath = $request->file('image_path')->store('public/item_images');
-            $item->image_path = str_replace('public/item_images/', '', $filePath);
+            // $filePath = $request->file('image_path')->store('public/item_images');
+            // $filePath = $request->file('image_path')->store('item_images', 's3');
+            // $file = $request->file('image_path');
+            // $filePath = Storage::disk('s3')->putFile('/item_images', $request->file('image_path'), 'public');
+            // $item->image_path = str_replace('item_images/', '', $filePath);
+            $item->image_path = '' . Storage::disk('s3')->putFile('/item_images', $request->file('image_path'), 'public');
         }
+        // if ($request->hasFile('image_path')) {
+        //     $path = Storage::disk('s3')->putFile('profiles', $request->image_path, 'public'); // Ｓ３にアップ
+        //     echo "\npath=" . $path;
+        //     $url = Storage::disk('s3')->url($path);
+        //     echo "\nurl=" . $url;
+        //     echo "\n";
+        // }
         // $item = Auth::user()->items()->create([
         //     'title' => $request->title,
         //     'image_path' => $request->image_path,
@@ -68,7 +82,8 @@ class ItemsController extends Controller
     {
         $this->authorize('delete', $item);
         if(isset($item->image_path)){
-            Storage::delete('public/item_images/'.$item->image_path);
+            // Storage::delete('public/item_images/'.$item->image_path);
+            Storage::disk('s3')->delete($item->image_path);
         }
         Item::destroy($item->id);
         return redirect()->route('user.items.index', ['user' => $item->user->id]);

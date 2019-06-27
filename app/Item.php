@@ -12,4 +12,9 @@ class Item extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function getImageUrlAttribute()
+    {
+        return config('app.s3_url') . '/' . $this->image_path;
+    }
 }
