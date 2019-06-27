@@ -19,26 +19,28 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/fade.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/fileInput.css') }}" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
     <script type="text/javascript" src="{{ asset('js/fade.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/fileInput.js') }}"></script>
 </head>
 <body class="fadeout">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background: linear-gradient(to right, #74ebd5, #acb6e5);">
             <div class="container">
                 @auth
-                    <a class="navbar-brand" href="{{ route('user.items.index', ['user' => auth()->user()]) }}">
-                        <!-- {{ config('app.name', 'Laravel') }} -->
-                        <!-- スコ -->
-                        <img src="{{ asset('images/suko.png') }}", alt="suko_logo" class="img-fluid" style="height:2em;">
+                    <a class="navbar-brand" href="{{ route('user.items.index', ['user' => auth()->user()]) }}" style="font-size:2rem; letter-spacing:6px;">
+                        {{ config('app.name', 'Laravel') }}
+                        <!-- <img src="{{ asset('images/suko.png') }}", alt="suko_logo" class="img-fluid" style="height:2rem;"> -->
                     </a>
                 @endauth
                 @guest
-                    <a class="navbar-brand" href="{{ route('login') }}">
-                        <!-- {{ config('app.name', 'Laravel') }} -->
-                        <!-- スコ -->
-                        <img src="{{ asset('images/suko.png') }}", alt="suko_logo" class="img-fluid" style="height:3em;">
+                    <a class="navbar-brand" href="{{ route('login') }}" style="font-size:2rem; letter-spacing:6px;">
+                        {{ config('app.name', 'Laravel') }}
+                        <!-- <img src="{{ asset('images/suko.png') }}", alt="suko_logo" class="img-fluid" style="height:2rem;"> -->
                     </a>
                 @endguest
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -49,9 +51,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li>@yield('navbar_content')</li>
-                        <li><a class="navbar-brand" href="/user/1/items">user1</a></li>
-                        <li><a class="navbar-brand" href="/user/2/items">user2</a></li>
-                        <li><a class="navbar-brand" href="/user/3/items">user3</a></li>
+                        <li><a class="navbar-brand text-secondary" href="/user/1/items">user1</a></li>
+                        <li><a class="navbar-brand text-secondary" href="/user/2/items">user2</a></li>
+                        <li><a class="navbar-brand text-secondary" href="/user/3/items">user3</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

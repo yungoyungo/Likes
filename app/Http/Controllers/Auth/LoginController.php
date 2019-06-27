@@ -40,6 +40,12 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    //ログインはemailではなくnameを使用
+    public function username()
+    {
+      return 'name';
+    }
+
     /**
      * OAuth認証先にリダイレクト
      *
