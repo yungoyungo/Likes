@@ -6,7 +6,8 @@
             <div class="col-md-6">
                 <!-- <img src="{{ asset('storage/item_images/'.$item->image_path) }}"><br> -->
                 @if($item->image_path == null)
-                    <img src="/storage/no_image.png", alt="no_image" class="img-fluid">
+                    <!-- <img src="/storage/no_image.png", alt="no_image" class="img-fluid"> -->
+                    <img src="{{ asset('images/suko.png') }}", alt="no_image" class="img-fluid">
                 @else
                     <img src="{{ $image_url }}" alt="image({{ $item->title }})" class="img-fluid">
                 @endif

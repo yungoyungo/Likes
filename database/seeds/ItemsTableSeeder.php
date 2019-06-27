@@ -13,11 +13,11 @@ class ItemsTableSeeder extends Seeder
     {
         DB::table('items')->delete();
  
-        App\Item::create([
-            'title' => 'sample_item',
-            'image_path' => '',
-            'user_id' => '1',
-        ]);
+        // App\Item::create([
+        //     'title' => 'sample_item',
+        //     'image_path' => '',
+        //     'user_id' => '1',
+        // ]);
         // App\Item::create([
         //     'title' => '君という花',
         //     'image_path' => 'sample/君という花.jpg',

@@ -13,7 +13,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->delete();
-        DB::unprepared("ALTER TABLE users AUTO_INCREMENT = 1 ");
+        DB::unprepared("select setval ('users_id_seq', 1, false);");
  
         App\User::create([
             'name' => 'root',
