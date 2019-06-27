@@ -7,7 +7,8 @@
             <article class="d-inline col-4 col-lg-3 p-1">
                 <a href="{{ route('items.show', ['item' => $item->id]) }}">
                     @if($item->image_path == null)
-                        <img src="/storage/no_image.png", alt="no_image" class="img-fluid">
+                        <!-- <img src="/storage/no_image.png", alt="no_image" class="img-fluid"> -->
+                        <img src="{{ asset('images/no_image.png') }}", alt="no_image" class="img-fluid">
                     @else
                         <!-- <img src="/storage/item_images/{{ $item->image_path }}" alt="{{ $item->title }}" class="img-fluid rounded"> -->
                         <img src="{{ $item->image_url }}" alt="{{ $item->title }}" class="img-fluid rounded">
