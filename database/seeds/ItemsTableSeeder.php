@@ -78,45 +78,45 @@ class ItemsTableSeeder extends Seeder
             'image_path' => 'item_images/sample/4jo-han.jpeg',
             'user_id' => '3',
         ]);
-        // App\Item::create([
-        //     'title' => 'andymori',
-        //     'image_path' => 'sample/andymori.jpg',
-        //     'user_id' => '3',
-        // ]);
-        // App\Item::create([
-        //     'title' => 'エウレカセブン',
-        //     'image_path' => 'sample/eureka.jpg',
-        //     'user_id' => '3',
-        // ]);
-        // App\Item::create([
-        //     'title' => 'GranTurismo',
-        //     'image_path' => 'sample/Gran_turismo_logo.png',
-        //     'user_id' => '3',
-        // ]);
-        // App\Item::create([
-        //     'title' => 'ミニ',
-        //     'image_path' => 'sample/mini.jpg',
-        //     'user_id' => '3',
-        // ]);
-        // App\Item::create([
-        //     'title' => 'マインクラフト',
-        //     'image_path' => 'sample/minecraft.jpeg',
-        //     'user_id' => '3',
-        // ]);
-        // App\Item::create([
-        //     'title' => 'ソニックアドベンチャー2',
-        //     'image_path' => 'sample/SA2_logo.png',
-        //     'user_id' => '3',
-        // ]);
-        // App\Item::create([
-        //     'title' => 'Grand Theft Auto V',
-        //     'image_path' => 'sample/grand-theft-auto-v-logo.png',
-        //     'user_id' => '3',
-        // ]);
-        // App\Item::create([
-        //     'title' => 'ももいろクローバーZ',
-        //     'image_path' => 'sample/The_Diamond_Four.png',
-        //     'user_id' => '3',
-        // ]);
+        App\Item::create([
+            'title' => 'andymori',
+            'image_path' => 'sample/andymori.jpg',
+            'user_id' => '3',
+        ]);
+        App\Item::create([
+            'title' => 'エウレカセブン',
+            'image_path' => 'sample/eureka.jpg',
+            'user_id' => '3',
+        ]);
+        App\Item::create([
+            'title' => 'GranTurismo',
+            'image_path' => 'sample/Gran_turismo_logo.png',
+            'user_id' => '3',
+        ]);
+        App\Item::create([
+            'title' => 'ミニ',
+            'image_path' => 'sample/mini.jpg',
+            'user_id' => '3',
+        ]);
+        App\Item::create([
+            'title' => 'マインクラフト',
+            'image_path' => 'sample/minecraft.jpeg',
+            'user_id' => '3',
+        ]);
+        App\Item::create([
+            'title' => 'ソニックアドベンチャー2',
+            'image_path' => 'sample/SA2_logo.png',
+            'user_id' => '3',
+        ]);
+        App\Item::create([
+            'title' => 'Grand Theft Auto V',
+            'image_path' => 'sample/grand-theft-auto-v-logo.png',
+            'user_id' => '3',
+        ]);
+        App\Item::create([
+            'title' => 'ももいろクローバーZ',
+            'image_path' => 'sample/The_Diamond_Four.png',
+            'user_id' => '3',
+        ]);
     }
 }
