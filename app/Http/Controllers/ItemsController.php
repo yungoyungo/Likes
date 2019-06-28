@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Item;
 use Auth;
+use Illuminate\Support\Facades\Cache;
 
 class ItemsController extends Controller
 {
@@ -25,7 +26,19 @@ class ItemsController extends Controller
     public function show(Item $item)
     {
         $image_url = Storage::disk('s3')->url($item->image_path);
+        // cache => 'path' => ['image_path1', 'image_path2'] 
+        // $image_url = $item->image_path;
+        // Cache::get('path', function () {
+        //     return Storage::disk('s3')->get($item->image_path);
+        // });
+
+        // Cache::add($item->id, Storage::disk('s3')->get($item->image_path), 1800);
+        // Storage::put('item_images/', Cache::get($item->id));
+        // // dd($cache);
+        // $image_url = asset('images/'). '/' . $item->image_path;
         // dd($image_url);
+        // $exists = Storage::disk('s3')->exists($item->image_path);
+        // dd($exists);
         return view('items.show', ['item' => $item, 'image_url' => $image_url]);
     }
 
@@ -44,6 +57,7 @@ class ItemsController extends Controller
             // $file = $request->file('image_path');
             // $filePath = Storage::disk('s3')->putFile('/item_images', $request->file('image_path'), 'public');
             // $item->image_path = str_replace('item_images/', '', $filePath);
+            //  画像をpublic以下に保存するかつ画像のパスをキャッシュに保存 assets('images/')
             $item->image_path = '' . Storage::disk('s3')->putFile('/item_images', $request->file('image_path'), 'public');
         }
         // if ($request->hasFile('image_path')) {
