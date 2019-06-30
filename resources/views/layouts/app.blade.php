@@ -52,8 +52,8 @@
                     <ul class="navbar-nav mr-auto">
                         <li>@yield('navbar_content')</li>
                         <!-- <li><a class="navbar-brand text-secondary" href="/user/1/items">user1</a></li> -->
-                        <li><a class="navbar-brand text-secondary" href="/user/2/items">sample/AKG</a></li>
-                        <li><a class="navbar-brand text-secondary" href="/user/3/items">sample/yusa</a></li>
+                        <li><a class="navbar-brand text-secondary" href="/user/2/items">sample / AKG</a></li>
+                        <li><a class="navbar-brand text-secondary" href="/user/3/items">sample / yusa</a></li>
                         <!-- <li><a class="navbar-brand text-secondary" href="/user/3/items">user3</a></li> -->
                     </ul>
 
