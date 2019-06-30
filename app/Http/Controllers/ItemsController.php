@@ -12,9 +12,9 @@ class ItemsController extends Controller
 {
     public function index()
     {
-        $users = User::all();
-        dd($users);
-        return view('items.index', ['users' => $users]);
+        // dd('unko');
+        $items = Item::all();
+        return view('items.all', ['items' => $items]);
     }
 
     public function create()
