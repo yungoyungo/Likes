@@ -46,6 +46,7 @@ class ItemsController extends Controller
     {
         $request->validate([
             'title' => 'required',
+            'file' => 'max:999',
         ]);
         // dd(Storage::disk('s3'));
         $item = new Item;
